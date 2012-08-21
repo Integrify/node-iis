@@ -1,0 +1,29 @@
+{
+    "name" : "iis",
+    "description" : "administer iis 7 on windows",
+    "author": "Integrify Inc. <info@integrify.com>",
+      "maintainers": [
+        "pdillon <pdillon@integrify.com>"
+      ],
+    "version" : "0.1.0",
+    "repository" : {
+        "type" : "git",
+        "url" : "https://github.com/Integrify/node-iis.git"
+    },
+    "main" : "iis.js",
+    "keywords" : [
+        "iis",
+        "windows",
+        "microsoft"
+    ],
+    "directories" : {
+        "example" : "example"
+    },
+    "dependencies" : {
+        "underscore" : "~1",
+        "xml2js" : "0.x"
+    },
+    "engines" : {
+        "node" : ">=0.8.0"
+    }
+}
