@@ -1,3 +1,9 @@
+/**
+ *  Copyright (C) 2012 Integrify, Inc.
+ *
+ */
+
+
 var exec = require('child_process').exec;
 var path = require('path');
 var xml2js = require('xml2js');
