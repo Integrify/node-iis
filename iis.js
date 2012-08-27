@@ -155,7 +155,7 @@ var IIS = function() {
 
         },
         setFilePermissions: function(path,account,cb) {
-            exec('icacls ' + path + '* /grant ' + account + ':F',function(err,stdout) {
+            exec('icacls ' + path + '* /grant ' + account + ':(OI)(CI)F',function(err,stdout) {
                 if (cb) {
                     cb(err,stdout);
                 }
