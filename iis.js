@@ -182,10 +182,10 @@ var IIS = function() {
                 }
 
                 if (cb) {
-                    cb(err,match["physicalPath"] ? match["physicalPath"] : null);
+                    cb(err,match ? match["physicalPath"] : null);
                 }
                 else {
-                    console.log(match["physicalPath"] ? match["physicalPath"] : null);
+                    console.log(match ? match["physicalPath"] : null);
                 }
             });
         }
