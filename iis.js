@@ -162,11 +162,32 @@ var IIS = function() {
                 else {
                     console.log(err,stdout);
                 }
-
             });
+        },
+        /**
+         * Get the physical path web site maps to
+         * @param site_name
+         */
+        getPhysicalPath : function(site_name,cb) {
+            var self = this;
+            this.list("VDIR",function(err,res) {
 
+                var match = null;
 
+                if (!err) {
+                    match = _.find(res,function(v) {
+                        var m = v['VDIR.NAME'];
+                        return m && m.toLowerCase() === (site_name.toLowerCase() + '/');
+                    });
+                }
 
+                if (cb) {
+                    cb(err,match["physicalPath"] ? match["physicalPath"] : null);
+                }
+                else {
+                    console.log(match["physicalPath"] ? match["physicalPath"] : null);
+                }
+            });
         }
     };
 }();
