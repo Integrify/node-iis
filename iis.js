@@ -34,7 +34,7 @@ var IIS = function() {
                 if (!tf) {
 
                     var site_cmd = ' add site /name:"' + options.name + '"';
-                    site_cmd += ' /bindings:' + options.protocol + '://' + options.host + ':' + options.port;
+                    site_cmd += ' /bindings:' + (options.bindings || (options.protocol + '://' + options.host + ':' + options.port));
 
                     if (options.path) {
                         site_cmd += ' /physicalPath:"' + options.path + '"';
