@@ -5,7 +5,7 @@
       "maintainers": [
         "pdillon <pdillon@integrify.com>"
       ],
-    "version" : "0.1.31",
+    "version" : "0.1.4",
     "repository" : {
         "type" : "git",
         "url" : "https://github.com/Integrify/node-iis.git"
