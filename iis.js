@@ -54,11 +54,25 @@ var IIS = function() {
         stopSite : function(name,cb) {
             exec(this.appcmd + ' stop site /site.name:"' + name + '"',cb);
         },
-        createAppPool : function(name,cb) {
+        /**
+         * Create app pool, also set app pool identity of object {name:,identity:} passed
+         * @param options
+         * @param cb
+         */
+        createAppPool : function(options,cb) {
             var self = this;
-            self.exists('apppool',name,function(err,tf) {
+            var poolname = typeof(options) == 'string' ? options : options.name;
+            var identity = typeof(options) == 'string' ? null : options.identity;
+            self.exists('apppool',poolname,function(err,tf) {
                 if (!tf) {
-                    exec(self.appcmd + ' add apppool /name:"' + name + '"',cb);
+                    exec(self.appcmd + ' add apppool /name:"' + poolname + '"',function(err,stdout) {
+                        if (!err && identity) {
+                            self.setAppPoolIdentity(poolname,identity,cb);
+                        }
+                        else {
+                            cb(err,stdout);
+                        }
+                    });
                 }
                 else {
                     cb(null,'App pool ' + name + ' exists');
