@@ -5,7 +5,7 @@
       "maintainers": [
         "pdillon <pdillon@integrify.com>"
       ],
-    "version" : "0.1.6",
+    "version" : "0.1.65",
     "repository" : {
         "type" : "git",
         "url" : "https://github.com/Integrify/node-iis.git"
@@ -21,7 +21,7 @@
     },
     "dependencies" : {
         "underscore" : "~1",
-        "xml2js" : "0.x"
+        "xml2js" : "0.1.14"
     },
     "engines" : {
         "node" : ">=0.8.0"
