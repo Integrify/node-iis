@@ -121,6 +121,14 @@ var IIS = function() {
             });
 
         },
+        setAnonymousAuthentication : function(appPath,enable,cb) {
+            var self = this;
+            var set_cmd = ' set config "' + appPath + '" /section:anonymousAuthentication /enabled:' + enable;
+            self.unlockSection('anonymousAuthentication',function(err,stdout) {
+                exec(self.appcmd + set_cmd,cb);
+            });
+
+        },
         list : function(type,cb) {
             var parser = new xml2js.Parser()
             exec(this.appcmd + ' list ' + type + ' /xml',function(err,outxml) {
