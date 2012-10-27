@@ -54,6 +54,10 @@ var IIS = function() {
         stopSite : function(name,cb) {
             exec(this.appcmd + ' stop site /site.name:"' + name + '"',cb);
         },
+        startSite : function(name,cb) {
+            exec(this.appcmd + ' start site /site.name:"' + name + '"',cb);
+        },
+        /**
         /**
          * Create app pool, also set app pool identity of object {name:,identity:} passed
          * @param options
