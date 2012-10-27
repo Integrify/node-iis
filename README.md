@@ -20,8 +20,9 @@ Great from easy command line scripting, management or application install tools.
   var iis = require('iis');
   iis.createSite({
     name:'MyNewSite',
+    protocol: 'http',
     port: 80,
-    binding: '*',
+    host: '*',
     path : __dirname + '/site'
     });
 
