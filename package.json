@@ -5,12 +5,15 @@
       "maintainers": [
         "pdillon <pdillon@integrify.com>"
       ],
-    "version" : "0.1.65",
+    "version" : "0.1.66",
     "repository" : {
         "type" : "git",
         "url" : "https://github.com/Integrify/node-iis.git"
     },
     "main" : "iis.js",
+    "scripts": {
+        "test": "node tests/run.js"
+    },
     "keywords" : [
         "iis",
         "windows",
@@ -22,6 +25,10 @@
     "dependencies" : {
         "underscore" : "~1",
         "xml2js" : "0.1.14"
+
+    },
+    "devDependencies" : {
+        "async" : "0.1.x"
     },
     "engines" : {
         "node" : ">=0.8.0"
