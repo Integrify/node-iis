@@ -7,12 +7,10 @@ Wraps up common commands you would use in the \windows\system32\inetsrv\appcmd u
 <em>Note: because this is IIS, you need to execute it using "Run As Administrator".</em>
 
 ## Install
-----
 
     npm install iis
 
 ## Create a new site
-----
 
     var iis = require('iis');
 
@@ -29,7 +27,6 @@ Wraps up common commands you would use in the \windows\system32\inetsrv\appcmd u
     });
 
 ## iis.createSite options
------
 
 - ```name```: The name of the site in IIS.
 - ```protocol```: Protocol. Either ```'http'``` or ```'https'```.
@@ -38,7 +35,6 @@ Wraps up common commands you would use in the \windows\system32\inetsrv\appcmd u
 - ```path```: Physical root path of the site (ex: ```'c:\\inetpub\\wwwroot\\newsite'```).
 
 ## Start/stop a site
-----
 
     //start
     iis.startSite('MyNewSite',function(err,rsp) {
