@@ -79,7 +79,7 @@ var IIS = function() {
                     });
                 }
                 else {
-                    cb(null,'App pool ' + name + ' exists');
+                    cb(null,'App pool ' + poolname + ' exists');
                 }
             })
         },
