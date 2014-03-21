@@ -191,6 +191,13 @@ var IIS = function() {
             });
         },
         /**
+         * Set the physical path web site maps to
+         * @param site_name
+         */
+        setPhysicalPath : function(site_name,path,cb) {
+            exec(this.appcmd + ' set vdir "' +  site_name +'/" -physicalPath:"' + path + '"',cb);
+        },
+        /**
          * Get the physical path web site maps to
          * @param site_name
          */

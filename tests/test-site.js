@@ -46,7 +46,31 @@ async.series({
                 cb();
             });
 
-        }},
+        },
+        //
+        // set physical path
+        //
+        'set_physical_path':function (cb) {
+            iis.setPhysicalPath(site_name, __dirname + '/node_modules', function (err) {
+                assert.ifError(err);
+                cb();
+            });
+        },
+        //
+        // get physical path
+        //
+        'get_physical_path':function (cb) {
+            iis.getPhysicalPath(site_name, function (err, path) {
+                assert.ifError(err);
+
+                console.log('get physical path: ' + path);
+                assert.equal(__dirname + '/node_modules', path);
+
+                cb();
+            });
+
+        }
+	},
 
     function (err, results) {
         assert.ifError(err);
