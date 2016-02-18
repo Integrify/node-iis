@@ -6,16 +6,19 @@
 
 var exec = require('child_process').exec;
 var path = require('path');
+var os = require("os");
 var xml2js = require('xml2js');
 var _ = require('underscore');
 
 
 var IIS = function() {
     return {
-        setDefaults : function(options) {
-            var appdrive = options.drive || 'c';
-            this.appcmd = appdrive + ':\\windows\\system32\\inetsrv\\appcmd.exe';
-
+        setDefaults : function() {
+            if (os.arch() === "x64") {
+                this.appcmd = process.env["windir"] + "\\syswow64\\inetsrv\\appcmd.exe";
+            } else {
+                this.appcmd = process.env["windir"] + "\\system32\\inetsrv\\appcmd.exe";
+            }
         },
         createSite : function(options,cb) {
             var self = this;
