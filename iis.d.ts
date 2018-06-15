@@ -33,6 +33,8 @@ declare namespace IIS {
 
     export function createAppFolder(options: { site?: string; virtual_path: string; physical_path: string; }, cb: Callback): void;
 
+    export function deleteAppFolder(options: { site?: string; virtual_path: string; }, cb: Callback): void;
+
     export function unlockSection(section: string, cb: Callback): void;
 
     export function setWindowsAuthentication(appPath: string, enable: boolean, cb: Callback): void;
