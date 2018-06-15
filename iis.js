@@ -115,6 +115,18 @@ var IIS = function() {
                 }});
 
         },
+        deleteAppFolder : function(options,cb) {
+            var self = this;
+            self.exists('app',(options.site || this.last_site) + '/' + options.virtual_path,function(err,tf) {
+                if (tf) {
+                    var deleteapp_cmd = ' delete app "' + (options.site || self.last_site) + '/' + options.virtual_path + '"';
+                    exec(self.appcmd + deleteapp_cmd,cb);
+                }
+                else {
+                    cb(err,"App " + (options.site || self.last_site) + '/' + options.virtual_path + " does not exist");
+                }});
+
+        },
         unlockSection : function(section,cb) {
             var unlock_cmd = " unlock config /section:" + section;
             exec(this.appcmd + unlock_cmd,cb);
